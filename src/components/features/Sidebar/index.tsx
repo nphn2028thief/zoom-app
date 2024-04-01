@@ -11,7 +11,7 @@ function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-fit lg:w-sidebar sticky top-0 left-0 bottom-0 flex max-sm:hidden flex-col justify-between bg-dark-1 text-white px-4 pb-6 pt-28">
+    <aside className="w-fit lg:w-sidebar fixed top-0 left-0 bottom-0 flex max-sm:hidden flex-col justify-between bg-dark-1 text-white px-4 pb-6 pt-28">
       <div className="flex flex-col gap-4">
         {CRoute.map((item) => {
           const isActive: boolean =

@@ -21,6 +21,10 @@ const config = {
       spacing: {
         navbar: "var(--navbar-height)",
         sidebar: "var(--sidebar-width)",
+        "small-sidebar": "var(--small-sidebar-width)",
+      },
+      backgroundImage: {
+        hero: "url('/images/hero-background.png')",
       },
       colors: {
         dark: {
@@ -29,6 +33,18 @@ const config = {
         },
         blue: {
           1: "#0E78F9",
+        },
+        sky: {
+          1: "#C9DDFF",
+        },
+        orange: {
+          1: "#FF742E",
+        },
+        purple: {
+          1: "#830EF9",
+        },
+        yellow: {
+          1: "#F9A90E",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
