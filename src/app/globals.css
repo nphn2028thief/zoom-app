@@ -5,6 +5,7 @@
 :root {
   --navbar-height: 64px;
   --sidebar-width: 264px;
+  --small-sidebar-width: 82px;
 }
 
 * {
