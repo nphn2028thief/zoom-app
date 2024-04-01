@@ -6,4 +6,5 @@ export enum EPath {
   PREVIOUS = "/previous",
   RECORDINGS = "/recordings",
   PERSONAL_ROOM = "/personal-room",
+  MEETING = "/meeting",
 }
