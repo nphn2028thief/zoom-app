@@ -19,6 +19,7 @@ const config = {
     },
     extend: {
       spacing: {
+        navbar: "var(--navbar-height)",
         sidebar: "var(--sidebar-width)",
       },
       colors: {

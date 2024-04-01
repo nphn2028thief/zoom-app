@@ -22,7 +22,7 @@ function Sidebar() {
               key={item.id}
               href={item.href}
               className={cn(
-                "flex justify-start items-center gap-4 p-4 rounded-lg",
+                "flex justify-start items-center gap-4 p-3.5 rounded-lg",
                 {
                   "bg-blue-1": isActive,
                 }
@@ -31,8 +31,8 @@ function Sidebar() {
               <Image
                 src={item.imgUrl}
                 alt={item.label}
-                width={20}
-                height={20}
+                width={22}
+                height={22}
               />
               <p className="max-lg:hidden text-lg font-semibold capitalize">
                 {item.label}
