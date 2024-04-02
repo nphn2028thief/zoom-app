@@ -33,7 +33,7 @@ const config = {
           2: "#161925",
         },
         blue: {
-          1: "#0E78F9",
+          1: "var(--blue-color-1)",
         },
         sky: {
           1: "#C9DDFF",
