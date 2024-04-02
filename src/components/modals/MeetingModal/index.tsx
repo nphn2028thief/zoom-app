@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface IProps {
+  type?: "button" | "submit";
   isOpen: boolean;
   title: string;
   imgUrl?: string;
@@ -21,6 +22,7 @@ interface IProps {
 
 const MeetingModal = (props: IProps) => {
   const {
+    type = "button",
     isOpen,
     title,
     imgUrl,
@@ -71,6 +73,7 @@ const MeetingModal = (props: IProps) => {
           {children}
 
           <Button
+            type={type}
             className="bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0 capitalize"
             onClick={onSubmit}
           >
