@@ -16,3 +16,5 @@ export type TMeetingState =
   | "isJoiningMeeting"
   | "isInstantMeeting"
   | undefined;
+
+export type TLayout = "grid" | "speaker-left" | "speaker-right";
