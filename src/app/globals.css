@@ -6,12 +6,14 @@
   --navbar-height: 64px;
   --sidebar-width: 264px;
   --small-sidebar-width: 82px;
+  --modal-width: 520px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 /* ======== stream css overrides ======== */
