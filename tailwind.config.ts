@@ -22,6 +22,7 @@ const config = {
         navbar: "var(--navbar-height)",
         sidebar: "var(--sidebar-width)",
         "small-sidebar": "var(--small-sidebar-width)",
+        modal: "var(--modal-width)",
       },
       backgroundImage: {
         hero: "url('/images/hero-background.png')",
