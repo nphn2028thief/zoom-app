@@ -3,7 +3,9 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useUser } from "@clerk/nextjs";
 import { useQuery } from "@tanstack/react-query";
 
-const useGetCalls = () => {
+import { TMeetingCallType } from "@/types/meeting";
+
+const useGetCalls = (type: TMeetingCallType) => {
   const [upcomingCalls, setUpcomingCalls] = useState<Call[]>([]);
   const [calls, setCalls] = useState<Call[]>([]);
   const [endedCalls, setEndedCalls] = useState<Call[]>([]);
@@ -20,7 +22,7 @@ const useGetCalls = () => {
         sort: [
           {
             field: "starts_at",
-            direction: 1, // Ascend sort
+            direction: type === "upcoming" ? 1 : -1, // Ascend sort
           },
         ],
         filter_conditions: {

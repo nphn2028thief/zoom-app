@@ -22,7 +22,7 @@ const MeetingCallList = ({ type }: IProps) => {
   const [typeState, setTypeState] = useState<TMeetingCallType>(type);
 
   const { upcomingCalls, endedCalls, recordingsCalls, isLoading, isFetching } =
-    useGetCalls();
+    useGetCalls(typeState);
 
   // Reset type
   useEffect(() => {
@@ -117,7 +117,7 @@ const MeetingCallList = ({ type }: IProps) => {
           title={(item as Call).state?.custom.description || "No description"}
           date={
             (item as Call).state?.startsAt?.toLocaleString() ||
-            (item as CallRecording).start_time.toLocaleString()
+            new Date((item as CallRecording).start_time).toLocaleString()
           }
           icon={getMeetingIcon()}
           isPreviousMeeting={typeState === "ended" ? true : false}
