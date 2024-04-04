@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
@@ -10,13 +10,13 @@ import MeetingItem from "./MeetingItem";
 import MeetingModal from "@/components/modals/MeetingModal";
 import { useToast } from "@/components/ui/use-toast";
 import { Textarea } from "@/components/ui/textarea";
-import { meetingList } from "@/constants/meeting";
+import { Input } from "@/components/ui/input";
+import { getMeetingLink, meetingList } from "@/constants/meeting";
 import { EPath } from "@/constants/path";
 import { TMeetingState } from "@/types/meeting";
 
 const MeetingList = () => {
   const router = useRouter();
-  const pathname = usePathname();
 
   const [meetingState, setMeetingState] = useState<TMeetingState>();
   const [values, setValues] = useState({
@@ -101,6 +101,21 @@ const MeetingList = () => {
         onClose={onClose}
       />
 
+      <MeetingModal
+        isOpen={meetingState === "isJoiningMeeting"}
+        title="Type the link here!"
+        buttonText="join meeting"
+        className="text-center"
+        onSubmit={() => router.push(values.link)}
+        onClose={onClose}
+      >
+        <Input
+          placeholder="Meeting link"
+          className="bg-dark-3 border-none focus-visible:ring-0 focus-visible:ring-offset-0"
+          onChange={(e) => setValues({ ...values, link: e.target.value })}
+        />
+      </MeetingModal>
+
       {callDetails ? (
         <MeetingModal
           isOpen={meetingState === "isSCheduleMeeting"}
@@ -110,7 +125,7 @@ const MeetingList = () => {
           buttonText="copy meeting link"
           className="text-center"
           onSubmit={() => {
-            const meetingLink = `${window.location.origin}${EPath.MEETING}/${callDetails.id}`;
+            const meetingLink = getMeetingLink(callDetails.id);
             navigator.clipboard.writeText(meetingLink);
             toast({ title: "Link copied!" });
           }}

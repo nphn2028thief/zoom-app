@@ -60,8 +60,8 @@ const MeetingCardItem = ({
           {!isPreviousMeeting && (
             <div className="w-full sm:w-auto flex flex-col sm:flex-row gap-2">
               <Button
-                onClick={onClick}
                 className="gap-1 rounded bg-blue-1 px-6"
+                onClick={onClick}
               >
                 {buttonIcon && (
                   <Image

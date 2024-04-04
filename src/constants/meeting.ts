@@ -47,3 +47,9 @@ export const avatarImages: string[] = [
   "/images/avatar-4.png",
   "/images/avatar-5.png",
 ];
+
+export const getMeetingLink = (id: string) =>
+  `${window.location.origin}${EPath.MEETING}/${id}`;
+
+export const getMeetingLinkPersonal = (id: string) =>
+  `${window.location.origin}${EPath.MEETING}/${id}?personal=true`;
