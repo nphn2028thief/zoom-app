@@ -18,3 +18,5 @@ export type TMeetingState =
   | undefined;
 
 export type TLayout = "grid" | "speaker-left" | "speaker-right";
+
+export type TMeetingCallType = "upcoming" | "ended" | "recordings";
