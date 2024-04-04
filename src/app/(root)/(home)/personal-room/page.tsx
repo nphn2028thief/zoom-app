@@ -41,7 +41,7 @@ function PersonalRoomPage() {
     <section className="size-full flex flex-col gap-[30px] lg:gap-9">
       <h1 className="text-3xl font-bold">Personal Room</h1>
 
-      <div className="flex flex-col gap-8">
+      <div className="grid grid-cols-1 gap-8">
         <div className="flex flex-col xl:flex-row gap-2">
           <h1 className="lg:text-xl font-medium text-sky-1">Topic:</h1>
           <p className="text-sm lg:text-lg font-bold truncate">{`${user?.firstName} ${user?.lastName}'s meeting room`}</p>
@@ -56,12 +56,12 @@ function PersonalRoomPage() {
             {getMeetingLinkPersonal(user?.id!)}
           </p>
         </div>
-        <div className="flex items-center gap-5">
-          <Button className="bg-blue-1 capitalize" onClick={startRoom}>
+        <div className="flex flex-col sm:flex-row items-center gap-5">
+          <Button className="w-full bg-blue-1 capitalize" onClick={startRoom}>
             start meeting
           </Button>
           <Button
-            className="bg-dark-3 capitalize"
+            className="w-full bg-dark-3 capitalize"
             onClick={() => {
               navigator.clipboard.writeText(getMeetingLinkPersonal(user?.id!));
               toast({ title: "Link copied!" });
