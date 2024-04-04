@@ -74,7 +74,7 @@ const MeetingModal = (props: IProps) => {
 
           <Button
             type={type}
-            className="bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0 capitalize"
+            className="gap-1 bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0 capitalize"
             onClick={onSubmit}
           >
             {buttonIcon ? (
