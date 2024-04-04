@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import MeetingCallItem from "./MeetingCallItem";
 import Loading from "@/components/commons/Loading";
 import { EPath } from "@/constants/path";
+import { locales, options } from "@/constants/date";
 import useGetCalls from "@/hooks/useGetCalls";
 import { TMeetingCallType } from "@/types/meeting";
 
@@ -116,8 +117,11 @@ const MeetingCallList = ({ type }: IProps) => {
           key={index}
           title={(item as Call).state?.custom.description || "No description"}
           date={
-            (item as Call).state?.startsAt?.toLocaleString() ||
-            new Date((item as CallRecording).start_time).toLocaleString()
+            (item as Call).state?.startsAt?.toLocaleString(locales, options) ||
+            new Date((item as CallRecording).start_time).toLocaleString(
+              locales,
+              options
+            )
           }
           icon={getMeetingIcon()}
           isPreviousMeeting={typeState === "ended" ? true : false}
