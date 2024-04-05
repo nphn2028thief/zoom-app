@@ -57,11 +57,14 @@ function PersonalRoomPage() {
           </p>
         </div>
         <div className="flex flex-col sm:flex-row items-center gap-5">
-          <Button className="w-full bg-blue-1 capitalize" onClick={startRoom}>
+          <Button
+            className="w-full lg:w-auto bg-blue-1 capitalize"
+            onClick={startRoom}
+          >
             start meeting
           </Button>
           <Button
-            className="w-full bg-dark-3 capitalize"
+            className="w-full lg:w-auto bg-dark-3 capitalize"
             onClick={() => {
               navigator.clipboard.writeText(getMeetingLinkPersonal(user?.id!));
               toast({ title: "Link copied!" });
