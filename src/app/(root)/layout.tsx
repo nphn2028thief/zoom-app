@@ -1,11 +1,15 @@
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
+import siteConfig from "@/configs/site";
 import StreamClientProvider from "@/providers/StreamClientProvider";
 
 export const metadata: Metadata = {
-  title: "Zoom App",
-  description: "Video Conferencing App",
+  title: {
+    default: siteConfig.name,
+    template: `${siteConfig.name} %s`,
+  },
+  description: siteConfig.description,
   icons: {
     icon: "/icons/logo.svg",
   },
