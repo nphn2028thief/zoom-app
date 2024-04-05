@@ -1,16 +1,20 @@
-import { Metadata } from "next";
+import { headers } from "next/headers";
 import { ReactNode } from "react";
+import { startCase } from "lodash";
 
 import Navbar from "@/components/features/Navbar";
 import Sidebar from "@/components/features/Sidebar";
 
-export const metadata: Metadata = {
-  title: "Zoom App",
-  description: "Video Conferencing App",
-  icons: {
-    icon: "/icons/logo.svg",
-  },
-};
+export async function generateMetadata() {
+  const headerList = headers();
+  const pathname = headerList.get("x-pathname");
+
+  return {
+    title: startCase(pathname!.split("/")[1])
+      ? `| ${startCase(pathname!.split("/")[1])}`
+      : "",
+  };
+}
 
 function HomeLayout({ children }: { children: ReactNode }) {
   return (
