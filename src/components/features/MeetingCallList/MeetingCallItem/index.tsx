@@ -31,7 +31,7 @@ const MeetingCardItem = ({
   const { toast } = useToast();
 
   return (
-    <section className="flex  w-full flex-col justify-between rounded-[14px] bg-dark-1 px-5 py-8 xl:max-w-[568px]">
+    <section className="flex w-full flex-col justify-between rounded-[14px] bg-dark-1 px-5 py-8">
       <article className="flex flex-col gap-5">
         <Image src={icon} alt="upcoming" width={28} height={28} />
         <div className="flex flex-col gap-2">
@@ -40,7 +40,7 @@ const MeetingCardItem = ({
         </div>
       </article>
       {isPreviousMeeting ? null : (
-        <article className="flex justify-center items-center relative mt-7">
+        <article className="flex 2xl:flex-col justify-center items-center 2xl:gap-7 relative mt-7">
           <div className="relative flex w-full max-sm:hidden">
             {avatarImages.map((item, index) => (
               <Image
@@ -58,7 +58,7 @@ const MeetingCardItem = ({
             </div>
           </div>
           {!isPreviousMeeting && (
-            <div className="w-full sm:w-auto flex flex-col sm:flex-row gap-2">
+            <div className="w-full sm:w-auto 2xl:w-full flex flex-col sm:flex-row 2xl:flex-col gap-3">
               <Button
                 className="gap-1 rounded bg-blue-1 px-6"
                 onClick={onClick}
