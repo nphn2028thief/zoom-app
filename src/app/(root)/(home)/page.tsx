@@ -32,9 +32,10 @@ function Home() {
         <div className="h-full flex flex-col justify-between max-lg:px-5 max-lg:py-8 lg:p-9">
           <h2 className="w-fit glassmorphism font-normal text-center px-4 py-2 rounded">
             {upcomingCalls && upcomingCalls.length
-              ? `Upcoming Meeting at: ${upcomingCalls[
-                  upcomingCalls.length - 1
-                ]?.state?.startsAt?.toLocaleString(locales, options)}`
+              ? `Upcoming Meeting at: ${upcomingCalls[0]?.state?.startsAt?.toLocaleString(
+                  locales,
+                  options
+                )}`
               : `No Upcoming Meeting!`}
           </h2>
           <div className="flex flex-col gap-2">

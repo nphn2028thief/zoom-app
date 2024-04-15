@@ -5,6 +5,7 @@ import { useCallback, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import ReactDatePicker from "react-datepicker";
+import { useQueryClient } from "@tanstack/react-query";
 
 import MeetingItem from "./MeetingItem";
 import MeetingModal from "@/components/modals/MeetingModal";
@@ -28,6 +29,8 @@ const MeetingList = () => {
 
   const { user } = useUser();
   const client = useStreamVideoClient();
+
+  const queryClient = useQueryClient();
 
   const { toast } = useToast();
 
@@ -70,13 +73,23 @@ const MeetingList = () => {
       toast({
         title: "Meeting created!",
       });
+
+      queryClient.invalidateQueries({ queryKey: ["getCalls"] });
     } catch (error) {
       console.log("error: ", error);
       toast({
         title: "Create meeting failure!",
       });
     }
-  }, [client, router, toast, user, values.dateTime, values.description]);
+  }, [
+    client,
+    queryClient,
+    router,
+    toast,
+    user,
+    values.dateTime,
+    values.description,
+  ]);
 
   const onClose = useCallback(() => setMeetingState(undefined), []);
 
